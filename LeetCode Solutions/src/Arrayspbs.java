@@ -376,4 +376,136 @@ public class Arrayspbs {
 		return j;
 	}
 
+	public static void twoSum(int[] nums, int target) {
+        int sum,i,j=0;
+        int res[] = new int[2];
+        int sumi = 0;
+
+        for(i=0; i<nums.length; i++)
+        {
+            for(j=1; j<nums.length-1; j++)
+            {
+                sumi = nums[i] + nums[j];
+                if(sumi == target)
+                {
+                    break;
+                }
+            }
+            if(sumi == target)
+            {
+                break;
+            }
+        }
+        res[0] = i;
+        res[1] = j;
+        Arrays.sort(res);
+        System.out.println(i + " " + j);
+    }
+
+    public static void medianInSortedArrays(int num1[], int num2[])
+    {
+        int temp[] = new int[num1.length+num2.length];
+        int j=0;
+        if(num1.length !=0) {
+            for (int i = 0; i < num1.length; i++) {
+                if (num1[i] != 0) {
+                    temp[j] = num1[i];
+                    j++;
+                }
+            }
+        }
+
+        int k=0;
+        if(num2.length != 0) {
+            for (int i = j; i < temp.length; i++) {
+                if (num2[k] != 0) {
+                    temp[j] = num2[k];
+                    k++;
+                    j++;
+                }
+                if (k == num2.length) {
+                    break;
+                }
+
+            }
+        }
+        Arrays.sort(temp);
+
+        double med;
+        if(temp.length % 2 ==0)
+        {
+            med = ((double)temp[temp.length/2] + (double)temp[temp.length/2 - 1])/2;
+        }
+        else
+        {
+            med = (double)temp[temp.length/2];
+        }
+
+        System.out.println(med);
+    }
+
+
+   public static int removeDuplicates(int[] a) {
+
+        int temp[] = new int[a.length];
+        int k=0;
+        for(int i=0;i<a.length;i++)
+        {
+            temp[k]=a[i];
+            k++;
+        }
+
+        int j = 0;
+        for (int i = 0; i < temp.length - 1; i++) {
+            if (temp[i] != temp[i + 1]) {
+                a[j] = temp[i];
+                j++;
+            }
+        }
+
+        a[j] = temp[temp.length - 1];
+
+        for(int i=0;i<a.length;i++)
+        {
+            System.out.println(a[i]);
+        }
+        return a.length;
+
+    }
+
+    public static void moveZeroes() {
+
+        int nums[] = {0,1,0,3,12};
+
+        int temp[] = Arrays.copyOf(nums,nums.length);
+        Arrays.sort(temp);
+
+        int count =0;
+
+        for(int i=0;i<nums.length;i++)
+        {
+            nums[i] = 0;
+        }
+        int j=0;
+
+        for(int i=0;i<temp.length;i++)
+        {
+            if(temp[i] != 0)
+            {
+                nums[j] = temp[i];
+                j++;
+            }
+            else
+            {
+                count++;
+            }
+        }
+
+        for(int i=0; i<nums.length; i++)
+        {
+            System.out.println(nums[i]);
+        }
+    }
+
+
 }
